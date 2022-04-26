@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dotnet-backend
+  template:
+    metadata:
+      labels:
+        app: dotnet-backend
+    spec:
+      containers:
+        - name: backend-pod
+          image: virginity/minitwit_backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: ConnectionStrings__Minitwit
+              valueFrom:
+                secretKeyRef:
+                  name: backend-config-secret
+                  key: ConnectionStrings__Minitwit
+            - name: AppSettings_Secret
+              valueFrom:
+                secretKeyRef:
+                  name: backend-config-secret
+                  key: AppSettings_Secret
+            - name: ASPNETCORE_ENVIRONMENT
+              value: seed
+
+
+

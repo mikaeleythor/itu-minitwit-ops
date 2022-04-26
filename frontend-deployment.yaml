@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-frontend
+  template:
+    metadata:
+      labels:
+        app: react-frontend
+    spec:
+      containers:
+        - name: frontend-pod
+          image: virginity/minitwit_frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          command: ["/bin/sh"]
+          args: ["-c","serve -s build -l 3000"]
+      restartPolicy: Always
