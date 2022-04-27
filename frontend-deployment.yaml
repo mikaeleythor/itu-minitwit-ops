@@ -20,4 +20,8 @@ spec:
             - containerPort: 3000
           command: ["/bin/sh"]
           args: ["-c","serve -s build -l 3000"]
+          env:
+            - name: REACT_APP_API_URL
+              value: https://minitwit.online/api
+
       restartPolicy: Always
