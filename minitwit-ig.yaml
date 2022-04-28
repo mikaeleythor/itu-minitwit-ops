@@ -24,7 +24,7 @@ kind: Ingress
 metadata:
   name: backend-ig
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$1
 spec:
   ingressClassName: nginx
   rules:
