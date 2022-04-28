@@ -3,8 +3,9 @@ kind: Ingress
 metadata:
   name: simulation-ig
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /minitwitsimulation/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /minitwitsimulation/$1
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -23,8 +24,9 @@ kind: Ingress
 metadata:
   name: backend-ig
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$1
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
@@ -43,6 +45,7 @@ kind: Ingress
 metadata:
   name: frontend-ig
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:

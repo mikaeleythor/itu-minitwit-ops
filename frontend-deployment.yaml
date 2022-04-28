@@ -14,14 +14,20 @@ spec:
     spec:
       containers:
         - name: frontend-pod
-          image: virginity/minitwit_frontend:latest
+          image: virginity/minitwit_frontend:k8s1.0
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           command: ["/bin/sh"]
-          args: ["-c","serve -s build -l 3000"]
-          env:
-            - name: REACT_APP_API_URL
-              value: https://minitwit.online/api
+          args: ["-c","serve -s build -l 3000 -S"]
+          volumeMounts:
+            - mountPath: /app/build/config
+              name: frontend-config
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: frontend-cm
+            optional: true
+          name: frontend-config
 
       restartPolicy: Always

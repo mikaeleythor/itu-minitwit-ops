@@ -4,7 +4,7 @@ metadata:
   name: frontend-service
 spec:
   selector:
-    app: react-backend
+    app: react-frontend
   ports:
     - name: frontend-port
       protocol: TCP
