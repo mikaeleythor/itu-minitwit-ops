@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-cm
+data:
+  appConfig.js: |
+    var appConfig = {
+      API_URL: `http://192.168.49.2/api/msgs`
+    };
