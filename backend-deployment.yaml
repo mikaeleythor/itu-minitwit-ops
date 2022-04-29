@@ -29,8 +29,6 @@ spec:
                 secretKeyRef:
                   name: backend-config-secret
                   key: AppSettings_Secret
-            - name: ASPNETCORE_ENVIRONMENT
-              value: seed
 
 
 
