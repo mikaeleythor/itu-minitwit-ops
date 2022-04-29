@@ -5,5 +5,5 @@ metadata:
 data:
   appConfig.js: |
     var appConfig = {
-      API_URL: `http://192.168.49.2/api/msgs`
+      API_URL: `http://eythormikael.com/api/msgs`
     };

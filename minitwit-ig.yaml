@@ -7,7 +7,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: eythormikael.com
+    http:
       paths:
       - path: /api/(.*)
         pathType: Prefix
@@ -28,7 +29,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: eythormikael.com
+    http:
       paths:
       - path: /backend/(.*)
         pathType: Prefix
@@ -47,7 +49,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: eythormikael.com
+    http:
       paths:
       - path: /
         pathType: Prefix
