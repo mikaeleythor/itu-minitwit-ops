@@ -4,6 +4,8 @@ metadata:
   name: simulation-ig
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /minitwitsimulation/$1
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
@@ -17,6 +19,10 @@ spec:
             name: backend-service
             port:
               number: 80
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+   - hosts:
+     - eythormikael.com
+     secretName: myingress-cert # < cert-manager will store the created certificate in this secret.
 
 ---
 
@@ -26,6 +32,8 @@ metadata:
   name: backend-ig
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$1
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
@@ -39,13 +47,19 @@ spec:
             name: backend-service
             port:
               number: 80
-
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+   - hosts:
+     - eythormikael.com
+     secretName: myingress-cert # < cert-manager will store the created certificate in this secret.
 ---
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: frontend-ig
+  annotations: 
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   rules:
@@ -59,4 +73,7 @@ spec:
             name: frontend-service
             port:
               number: 3000
-
+  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+   - hosts:
+     - eythormikael.com
+     secretName: myingress-cert # < cert-manager will store the created certificate in this secret.
