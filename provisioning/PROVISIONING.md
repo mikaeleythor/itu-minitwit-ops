@@ -9,12 +9,8 @@ Sensitive data can be assigned to variables using export:
 
 ```
 # Terraform defaults to interpreting env-var values as literal strings
-export TF_VAR_variable_name='S3Ns1T1V3D4Ta'
+
+export TF_VAR_digitalocean_token='S3Ns1T1V3D4Ta'
+export TF_VAR_top_level_domain='S3Ns1T1V3D4Ta'
 ```
-
-Unclear
----
-
-- Does running `terraform init && terraform apply` in this environment overwrite or merge existing DNS records?
-- Is it best practices to separate deployment from provisioning?
 
