@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up
       uses: actions/checkout@v3
     - name: Run kubeconfig script 
       env:
