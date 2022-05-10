@@ -9,10 +9,13 @@ jobs:
     steps:
     - name: Set up
       uses: actions/checkout@v3
-    - name: Run kubeconfig script 
-      env:
-        TF_VAR_digitalocean_token: ${{ secrets.DIGITALOCEAN_TOKEN }}
-        TF_VAR_cluster_name: ${{ secrets.CLUSTER_NAME }}
-      run: chmod +x ./kubeconfig.sh && ./kubeconfig.sh
+    # Set up the Kubernetes CLI with your DigitalOcean Kubernetes cluster.
+    - name: Set up kubectl
+      uses: matootie/dokube@v1.4.0
+      with:
+        personalAccessToken: ${{ secrets.DIGITALOCEAN_TOKEN }}
+        clusterName: ${{ secrets.CLUSTER_NAME }}
+
+    # Run any kubectl commands you want!
     - name: Run apply script
       run: chmod +x ./apply.sh && ./apply.sh
