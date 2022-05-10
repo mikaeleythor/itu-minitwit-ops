@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  apply:
+  apply-all:
     runs-on: ubuntu-latest
 
     steps:
