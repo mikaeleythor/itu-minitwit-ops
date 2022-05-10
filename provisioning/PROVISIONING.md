@@ -12,5 +12,6 @@ Sensitive data can be assigned to variables using export:
 
 export TF_VAR_digitalocean_token='S3Ns1T1V3D4Ta'
 export TF_VAR_top_level_domain='S3Ns1T1V3D4Ta'
+export TF_VAR_cluster_name='S3Ns1T1V3D4Ta'
 ```
 

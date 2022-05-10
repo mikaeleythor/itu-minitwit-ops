@@ -1,4 +1,3 @@
-cluster_name        = "minitwit-test-cluster"
 region              = "lon1"
 min_nodes           = 3
 max_nodes           = 4
