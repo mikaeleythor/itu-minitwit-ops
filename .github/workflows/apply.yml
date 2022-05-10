@@ -1,0 +1,18 @@
+name: apply
+
+on:
+  workflow_dispatch:
+
+jobs:
+  apply_manifests:
+    runs-on: ubuntu-latest
+
+    steps:
+      uses: actions/checkout@v3
+    - name: Run kubeconfig script 
+      env:
+        TF_VAR_digitalocean_token=${{ secrets.DIGITALOCEAN_TOKEN }}
+        TF_VAR_cluster_name=${{ secrets.CLUSTER_NAME }}
+      run: chmod +x ./kubeconfig.sh && ./kubeconfig.sh
+    - name: Run apply script
+      run: chmod +x ./apply.sh && ./apply.sh
