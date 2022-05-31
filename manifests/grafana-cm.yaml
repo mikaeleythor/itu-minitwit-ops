@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-cm
+data:
+  grafana.ini: |
+    [server]
+    domain = minitwit.online
+    root_url = https://minitwit.online/monitor/
+    serve_from_path = true

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+        - name: grafana-pod
+          image: grafana/grafana
+          securityContext:
+            runAsUser: 0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - mountPath: /etc/grafana
+              name: grafana-config
+            - mountPath: /var/lib/grafana
+              name: grafana-data-pv
+
+      volumes:
+        - configMap:
+            defaultMode: 420
+            optional: true
+            name: grafana-cm
+          name: grafana-config
+        - name: grafana-data-pv
+          persistentVolumeClaim:
+            claimName: grafana-data-pvc
+
+      restartPolicy: Always
