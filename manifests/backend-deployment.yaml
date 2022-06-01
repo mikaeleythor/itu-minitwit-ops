@@ -30,4 +30,4 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: backend-config-secret
-                  key: AppSettings_Secret
+                  key: AppSettings__Secret

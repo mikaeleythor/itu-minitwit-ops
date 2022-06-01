@@ -31,7 +31,7 @@ kind: Ingress
 metadata:
   name: backend-ig
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: /minitwit/$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/ingress.class: "nginx"
 spec:

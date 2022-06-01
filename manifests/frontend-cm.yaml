@@ -5,5 +5,5 @@ metadata:
 data:
   appConfig.js: |
     var appConfig = {
-      API_URL: `https://minitwit.online/api/msgs`
+      API_URL: `https://minitwit.online/backend`
     };
