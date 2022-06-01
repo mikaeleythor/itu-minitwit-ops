@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend-pod
-          image: virginity/minitwit_backend:latest
+          image: virginity/minitwit_backend:production
           imagePullPolicy: Always
           ports:
             - containerPort: 80
