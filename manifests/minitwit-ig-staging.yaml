@@ -4,10 +4,10 @@ metadata:
   name: simulation-ig
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /minitwitsimulation/$2
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
     kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: minitwit.online
     http:
@@ -32,10 +32,10 @@ metadata:
   name: backend-ig
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
     kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: minitwit.online
     http:
@@ -58,10 +58,10 @@ kind: Ingress
 metadata:
   name: frontend-ig
   annotations: 
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
     kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: minitwit.online
     http:
@@ -88,10 +88,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/proxy-redirect-from: ~^/(.*)
     nginx.ingress.kubernetes.io/proxy-redirect-to: https://minitwit.online/prometheus/$1
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    #kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: minitwit.online
     http:
@@ -116,10 +116,10 @@ metadata:
   name: grafana-ig
   annotations: 
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    #kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    kubernetes.io/ingress.class: "nginx"
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: minitwit.online
     http:

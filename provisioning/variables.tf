@@ -37,8 +37,3 @@ variable default_node_size {
     type        = string
     default     = "s-1vcpu-2gb"
 }
-
-variable deployment_repo {
-    description = "The repository URL to pull K8s manifests from"
-    type        = string
-}

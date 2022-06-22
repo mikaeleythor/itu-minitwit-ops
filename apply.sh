@@ -3,8 +3,9 @@
 cd manifests
 
 # Apply all manifests
-ls | grep yaml | xargs -I pattern kubectl apply -f pattern
-
-cd ..
-kubectl rollout restart deployment/backend-deploy
-kubectl rollout restart deployment/frontend-deploy
+ls | grep pvc.yaml | xargs -I pattern kubectl apply -f pattern
+ls | grep pv.yaml | xargs -I pattern kubectl apply -f pattern
+ls | grep cm.yaml | xargs -I pattern kubectl apply -f pattern
+ls | grep deploy | xargs -I pattern kubectl apply -f pattern
+ls | grep service | xargs -I pattern kubectl apply -f pattern
+ls | grep deploy | xargs -I pattern kubectl rollout restart deployment/pattern
