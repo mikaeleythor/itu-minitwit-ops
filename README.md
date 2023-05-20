@@ -1,10 +1,10 @@
 Deploying
 ---
 
-This repo allows for provisioning and deploying our application with a few short commands.
+Provisioning and deploying a twitter-clone to Digital Ocean with a few commands.
 
 
-Setuo environment variables
+Setup environment variables
 ```
 export TF_VAR_digitalocean_token='S3Ns1T1V3D4Ta'
 export TF_VAR_top_level_domain='S3Ns1T1V3D4Ta'
